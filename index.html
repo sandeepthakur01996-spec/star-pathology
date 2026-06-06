@@ -338,9 +338,45 @@ Book Appointment
 </form>
 
 </div>
+</section>
+<h2>Search Test Rate</h2>
 
-</section> <section class="section">
+<input type="text" id="testSearch"
+placeholder="Enter Test Name"
+style="width:100%;padding:12px;margin:10px 0;">
 
+<button onclick="searchTest()" class="btn whatsapp">
+Search Rate
+</button>
+
+<h3 id="searchResult"></h3><h2>Test Rate List</h2>
+
+<button onclick="showRateList()" class="btn whatsapp">
+View Complete Rate List
+</button>
+
+<div id="rateList" style="display:none;">
+
+<table border="1" width="100%" cellpadding="10">
+
+<tr>
+<th>Test Name</th>
+<th>Rate</th>
+</tr>
+
+<tr><td>CBC</td><td>250</td></tr>
+<tr><td>WIDAL</td><td>150</td></tr>
+<tr><td>UPT</td><td>150</td></tr>
+<tr><td>LFT</td><td>780</td></tr>
+<tr><td>RFT</td><td>780</td></tr>
+<tr><td>HIV</td><td>450</td></tr>
+<tr><td>HBSAG</td><td>350</td></tr>
+
+</table>
+
+</div>
+
+<section class="section">
 <h2>Online Payment</h2>
 
 <div class="payment-box">
@@ -508,6 +544,127 @@ window.open(
 
 }
 
+function showRateList(){
+
+var x=document.getElementById("rateList");
+
+if(x.style.display==="none"){
+x.style.display="block";
+}
+else{
+x.style.display="none";
+}
+
+}
+function searchTest(){
+
+var test=document.getElementById("testSearch").value.toUpperCase();
+var rates = {
+
+"CBC":"250",
+"WIDAL":"150",
+"UPT":"150",
+"SB":"200",
+"LFT":"780",
+"RFT":"780",
+"URINE R/M":"150",
+"STOOL R/M":"300",
+"GLUCOSE R.F.P":"50",
+"M ANTIGEN":"350",
+"LIPID PROFILE":"650",
+"HIV":"450",
+"HBSAG":"350",
+"VDRL":"200",
+"CALCIUM":"200",
+"CREATININE":"200",
+"UREA":"200",
+"URIC ACID":"250",
+"RF FACTOR":"550",
+"HB":"150",
+"S. ELECTROLYTES":"550",
+"ANC PROFILE":"1000",
+"ANC PROFILE WITHOUT HIV":"850",
+"CRP Q":"550",
+"HBA1C":"750",
+"HCV":"550",
+"BLOOD GROUP":"100",
+"ECG":"250",
+"ECG BED SIDE":"350",
+"CKMB":"750",
+"PFT":"500",
+"CHOLESTEROL":"250",
+"TRIGLYCERIDES":"250",
+"SGPT/SGOT":"200",
+"ALKALINE PHOSPHATASE":"200",
+"AMYLASE":"400",
+"LIPASE":"400",
+"GBPD":"500",
+"PT INR/APTT":"400",
+"SEMEN ANALYSIS":"500",
+"MT TEST":"500",
+"CHIKUNGUNYA TEST":"850",
+"PHOSPHORUS":"200",
+"ASO":"400",
+"ESR":"100",
+"D-DIMER":"1000",
+"LDH":"500",
+"TOTAL PROTEIN":"150",
+"ADA":"1000",
+"DENGUE":"1500",
+
+"T3T4TSH":"700",
+"VIT D":"1500",
+"VIT B12":"1200",
+"URINE C/S":"1200",
+"TB GOLD":"3500",
+"ALLERGY PROFILE COMPLETE":"10500",
+"ALLERGY PROFILE WITHOUT DRUG":"6500",
+"TROPONINE TEST":"2500",
+"BT CT":"100",
+"GTT":"500",
+"TSH":"400",
+"FT3FT4TSH":"1000",
+"PUS C/S":"1200",
+"BLOOD C/S":"1500",
+"PS FOR MP":"200",
+"S ALBUMIN":"150",
+"PSA":"1000",
+"S PROLACTIN/FSH/LH/B.HCG":"800",
+"TORCH-8":"3000",
+"COMBS-DIRECT/INDIRECT":"1000",
+"IRON PROFILE":"700",
+"GFR":"350",
+"FNAC":"1500",
+"TESTOSTERONE":"1000",
+"FERRITIN":"700",
+"CA125":"1200",
+"FUNGAL STAIN":"500",
+"BIOPSY SMALL":"1000",
+"BIOPSY MEDIUM":"1500",
+"BIOPSY LARGE":"2000",
+"HBEAG":"1200",
+"SPUTUM R/M":"500",
+"PS FOR COMMENTS":"700",
+"PAP SMEAR":"1200",
+"AMH":"2500",
+"ESTRADIOL E2":"1000",
+"URINE SUGAR":"50",
+"HIV ELISA":"1500",
+"HLA B27":"2500",
+"ANTI CCP":"1750"
+
+};
+
+if(rates[test]){
+document.getElementById("searchResult").innerHTML=
+test+" Rate = ₹"+rates[test];
+}
+else{
+document.getElementById("searchResult").innerHTML=
+"Test Not Found";
+}
+
+}
 </script>
 
 </body>
